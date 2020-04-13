@@ -58,8 +58,8 @@
 
 #### 전체 진행과정
 
-* 1일차 
-* 주제 재확인 
+* 1일차 /0408
+  * 주제 재확인 
   * 작성했던 기획안 확인
     * 기존 알약 정보 사이트
     * 약학정보원 (https://www.health.kr/searchIdentity/search.asp)
@@ -68,8 +68,12 @@
     * 의약품안전나라(https://nedrug.mfds.go.kr/searchDrug)
   * 기존 알약 정보 App
       * 약학정보원 의약품 검색(https://apps.apple.com/kr/app/%EC%95%BD%ED%95%99%EC%A0%95%EB%B3%B4%EC%9B%90-%EC%9D%98%EC%95%BD%ED%92%88%EA%B2%80%EC%83%89/id456851567)
-* 2일차
+* 2일차 /0409
   * 1일차 진행과정 자세하게 내용 추가
   * 일정 계획표 작성
   * 알약 사진 저장 code 완성
-  * Colab으로 사진 이동
+* 3일차 /0410
+  * 알약 사진 저장 (약 2만2천개)
+  * 알약 사진 google drive 저장
+  * 서비스 스케치
+  * 주제 발표 자료 작성
