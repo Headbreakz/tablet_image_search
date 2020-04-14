@@ -78,5 +78,17 @@
   * 서비스 스케치
   * 주제 발표 자료 작성
 * 4일차 /0413
-  * 알약 사진 google drive 저장
+  * 알약 사진 google drive 저장 (1000개)
   * 알약 분류 model 알고리즘 검색
+    * One shot learning with Siamese Networks using keras
+* 5일차 /04/14
+  * 
+
+---
+
+#### 주제 발표 후 의견
+
+1. 알약의 생김새가 형태와 색이 거의 비슷한테 유의미한 분류가 가능한가요
+2. 어르신들을 위한 음성 서비스
+
+   
