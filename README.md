@@ -61,10 +61,10 @@
 * 1일차 /0408
   * 주제 재확인 
   * 작성했던 기획안 확인
-    * 기존 알약 정보 사이트
+  * 기존 알약 정보 사이트
     * 약학정보원 (https://www.health.kr/searchIdentity/search.asp)
     * 의약품 식별 표시 (http://www.pharm.or.kr/search/drugidfy/search.asp)
-  * Druginfo(https://www.druginfo.co.kr/identy/identy_char.aspx)
+    * Druginfo(https://www.druginfo.co.kr/identy/identy_char.aspx)
     * 의약품안전나라(https://nedrug.mfds.go.kr/searchDrug)
   * 기존 알약 정보 App
       * 약학정보원 의약품 검색(https://apps.apple.com/kr/app/%EC%95%BD%ED%95%99%EC%A0%95%EB%B3%B4%EC%9B%90-%EC%9D%98%EC%95%BD%ED%92%88%EA%B2%80%EC%83%89/id456851567)
@@ -81,8 +81,17 @@
   * 알약 사진 google drive 저장 (1000개)
   * 알약 분류 model 알고리즘 검색
     * One shot learning with Siamese Networks using keras
-* 5일차 /04/14
-  * 
+* 5일차 /0414
+  * One shot learning with Siamese Networks using keras 을 이용하여 model 구현 - 실패
+  * 현재 카테고리화 되어 있지 않아서, 분류하기에 어려움
+  * 카테고리로 묶기 위해, 분류 번호를 사용할 예정
+* 6일차 /0416
+  * model에 대한 전체 수정
+  * 데이터 이미지와 색깔정보, 모양 정보를 input하여 model를 만들기 위해 데이터 전처리
+  * 알약 사진의 배경을 없애기 위해 GrabCut을 사용하여, 배경 부분을 검정색으로 표시
+  * 현재 jpg 파일 형식을 PNG 형식으로 전환하여, RGBA로 변환
+  * 검정 + 남아 있는 부분에 대한 색상을 (0,0,0,0)으로 변환
+  * keras Multi input 모델 검색 
 
 ---
 
@@ -91,4 +100,13 @@
 1. 알약의 생김새가 형태와 색이 거의 비슷한테 유의미한 분류가 가능한가요
 2. 어르신들을 위한 음성 서비스
 
-   
+
+
+---
+
+#### 진행된 프로젝트 
+
+
+
+http://www.ndsl.kr/ndsl/commons/util/ndslOriginalView.do?dbt=TRKO&cn=TRKO201800005241&rn=&url=&pageCode=PG18
+
