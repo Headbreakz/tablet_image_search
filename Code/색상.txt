@@ -1,0 +1,20 @@
+연두 yellowish green
+갈색 brown
+검정 black
+남색 dark blue
+노랑 yellow
+보라 purple 
+분홍 pink
+빨강 red
+자주 wine
+주황 orange
+청록 bluish green
+초록 green
+파랑 blue
+하양 white
+회색 gray
+
+
+옅은 light
+진한 deep
+투명 transparency

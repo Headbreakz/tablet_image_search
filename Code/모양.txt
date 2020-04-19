@@ -1,0 +1,11 @@
+원형 circle
+장방형 rectangle
+타원형 ellipse
+마름모형 diamond
+반원형 a hemicyclea semicircle
+사각형 tetragon
+오각형 pentagon
+육각형 hexagon
+팔각형 octagon
+기타 the others
+삼각형 triangle

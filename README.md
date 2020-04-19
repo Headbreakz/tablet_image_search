@@ -60,31 +60,55 @@
 
 * 1일차 /0408
   * 주제 재확인 
+  
   * 작성했던 기획안 확인
+  
   * 기존 알약 정보 사이트
     * 약학정보원 (https://www.health.kr/searchIdentity/search.asp)
     * 의약품 식별 표시 (http://www.pharm.or.kr/search/drugidfy/search.asp)
     * Druginfo(https://www.druginfo.co.kr/identy/identy_char.aspx)
     * 의약품안전나라(https://nedrug.mfds.go.kr/searchDrug)
+    
   * 기존 알약 정보 App
+    
       * 약학정보원 의약품 검색(https://apps.apple.com/kr/app/%EC%95%BD%ED%95%99%EC%A0%95%EB%B3%B4%EC%9B%90-%EC%9D%98%EC%95%BD%ED%92%88%EA%B2%80%EC%83%89/id456851567)
+      
+  * 진행된 프로젝트
+  
+      http://www.ndsl.kr/ndsl/commons/util/ndslOriginalView.do?dbt=TRKO&cn=TRKO201800005241&rn=&url=&pageCode=PG18
+  
 * 2일차 /0409
+  
   * 1일차 진행과정 자세하게 내용 추가
   * 일정 계획표 작성
   * 알약 사진 저장 code 완성
+  
 * 3일차 /0410
   * 알약 사진 저장 (약 2만2천개)
   * 알약 사진 google drive 저장 - 4일차
   * 서비스 스케치
   * 주제 발표 자료 작성
+  
 * 4일차 /0413
+  
+  * 주제 발표
+    
+    * 발표 후 의견
+    
+    1. 알약의 생김새가 형태와 색이 거의 비슷한테 유의미한 분류가 가능한가요
+    2. 어르신들을 위한 음성 서비스
+    
   * 알약 사진 google drive 저장 (1000개)
+  
   * 알약 분류 model 알고리즘 검색
+  
     * One shot learning with Siamese Networks using keras
+  
 * 5일차 /0414
   * One shot learning with Siamese Networks using keras 을 이용하여 model 구현 - 실패
   * 현재 카테고리화 되어 있지 않아서, 분류하기에 어려움
   * 카테고리로 묶기 위해, 분류 번호를 사용할 예정
+  
 * 6일차 /0416
   * model에 대한 전체 수정
   * 데이터 이미지와 색깔정보, 모양 정보를 input하여 model를 만들기 위해 데이터 전처리
@@ -92,21 +116,43 @@
   * 현재 jpg 파일 형식을 PNG 형식으로 전환하여, RGBA로 변환
   * 검정 + 남아 있는 부분에 대한 색상을 (0,0,0,0)으로 변환
   * keras Multi input 모델 검색 
+  
+* 7일차 /0417
+
+  * 모델 수정
+
+    * 다중 라벨 분류 (Multi - label classification with keras)
+    * 이미지 1개 
+    * 라벨 2개 ( 색상, 모양 )
+  * 참고 링크
+    * [https://github.com/KerasKorea/KEKOxTutorial/blob/master/35_%EC%BC%80%EB%9D%BC%EC%8A%A4%EB%A5%BC%20%EC%9D%B4%EC%9A%A9%ED%95%9C%20%EB%8B%A4%EC%A4%91%20%EB%9D%BC%EB%B2%A8%20%EB%B6%84%EB%A5%98.md](https://github.com/KerasKorea/KEKOxTutorial/blob/master/35_케라스를 이용한 다중 라벨 분류.md)
+  * 알약 사진 재 저장 -22,878개 145 목록
+  * 알약 사진을 형태와 색상으로 나눠서 저장 
+  
+* 8일차 /0418-19 추가활동
+
+  * 배경 제거 작업 - grabcut
+    * 배경 제거 작업에서 기타로 분류된 알약 제외- 현재 22,400개 131목록
+    * 기타 알약사진 제거
+  * 검정색 배경을 투명한색으로 변경
+    * 변경 작업에서 노이즈 이미지 제거 - 515개 제거 - 현재 총 14,852개 78목록
 
 ---
 
-#### 주제 발표 후 의견
+#### 어려운점, 잘못된점, 못한점
 
-1. 알약의 생김새가 형태와 색이 거의 비슷한테 유의미한 분류가 가능한가요
-2. 어르신들을 위한 음성 서비스
+* 전체 알약에 대해서 Y을 이름 값으로 하여, One shot learning with Siamese Networks using keras을 한다면 될거라고 생각함
+  * 2만개가 넘는 클래스로 인해 어려움 봉착
+* keras functional API를 통해 사진과 모양,색상정보를 따로 모델링하여 진행하면 될거라고생각
+  * 사진과 모양,색상이 같이 매치되지 못함- 1번사진과 1번 모양,색상 정보로 차례대로 입력되지 않음
+  * 결국 따로따로 input들이 각 각의 모델을 통해 나중에 합쳐지는 모델이 되어서, 맞지 않다고 판단
+* 모양,색상으로 분류
+  * 진행된 프로젝트를 참고 사항으로 모양,색상으로 분류하기로함
+  * 처음부터 데이터를 다시 정리해야함
+  * 한글 파일로 폴더명을 할 경우, python에서 오류 - 영어로 전환 후 다시 데이터 정리
+* keras,tensorflow version이 중요
 
 
 
----
 
-#### 진행된 프로젝트 
-
-
-
-http://www.ndsl.kr/ndsl/commons/util/ndslOriginalView.do?dbt=TRKO&cn=TRKO201800005241&rn=&url=&pageCode=PG18
 
