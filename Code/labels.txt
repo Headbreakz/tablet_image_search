@@ -1,0 +1,23 @@
+'a hemicyclea semicircle','circle','diamond','ellipse','hexagon','octagon','pentagon',
+'rectangle','tetragon','triangle',
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+'black','blue','blue, light','blue, transparency','bluish green','bluish green, transparency','brown',
+' brown, transparency','dark blue',dark blue, transparency','gray','green','green, transparency',
+'orange','orange, transparency','pink','pink, deep','pink, light','pink, transparency','purple',
+'purple, transparency','red','red, transparency','transparency','white','white, blue','white, brown',
+'white, green','white, red','white, transparency','white, yellow','wine','wine, transparency','yellow',
+'yellow, transparency','yellowish green','yellowish green, transparency'

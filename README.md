@@ -1,5 +1,7 @@
 ### 알약 사진을 통한 알약 정보 알리미
 
+http://pf.kakao.com/_nxkxbaxb
+
 ---
 
 1. 프로젝트 배경
@@ -143,12 +145,27 @@
     * 이동 이유 : Colab 메모리 부족
   * 카카오 플러스 친구 생성
   * 최종 알약 추출 code 진행중
+  * 추가 작업을 통해 model 학습 완료
   
 * 10일차 /0421
 
   * 카카오 플러스 친구 생성 - 알약 알리미
   * 카카오 플러스 친구에서 code가 작동 여부 확인
   * 최종 code 수정 필요
+  
+* 11일차 /0422
+
+  * python을 json으로 수정
+  * 쳇봇 Timeout 문제 해결해야함 - 해결
+  * 추가 작업을 통해 완성 
+  
+* 12일차 /0423
+
+  * 전체 TEST 진행 및 오류 확인 중
+  * 여러장의 사진 중 맨 처음만 인식하도록 수정
+  * 알약 알리미 사용법 작성
+  * 발표 PPT 작성
+  * model 정확도 및 오버피팅 해결을 위해 재조정
 
 ---
 
@@ -164,8 +181,25 @@
   * 처음부터 데이터를 다시 정리해야함
   * 한글 파일로 폴더명을 할 경우, python에서 오류 - 영어로 전환 후 다시 데이터 정리
 * keras,tensorflow version이 중요
+* 챗봇의 Timeout을 고려하여, 제작해야 함.
+* Json의 구조를 정확하게 파악해야 함
 
 
 
+---
 
+#### 알약 알리미 사용법
 
+<img src="C:\Users\82107\Desktop\파일보관\설명\설명서\슬라이드2.JPG" alt="슬라이드2" style="zoom: 50%;" />
+
+<img src="C:\Users\82107\Desktop\파일보관\설명\설명서\슬라이드3.JPG" alt="슬라이드3" style="zoom:50%;" />
+
+<img src="C:\Users\82107\Desktop\파일보관\설명\설명서\슬라이드4.JPG" alt="슬라이드4" style="zoom:50%;" />
+
+<img src="C:\Users\82107\Desktop\파일보관\설명\설명서\슬라이드5.JPG" alt="슬라이드5" style="zoom:50%;" />
+
+<img src="C:\Users\82107\Desktop\파일보관\설명\설명서\슬라이드6.JPG" alt="슬라이드6" style="zoom:50%;" />
+
+<img src="C:\Users\82107\Desktop\파일보관\설명\설명서\슬라이드7.JPG" alt="슬라이드7" style="zoom:50%;" />
+
+<img src="C:\Users\82107\Desktop\파일보관\설명\설명서\슬라이드8.JPG" alt="슬라이드8" style="zoom:50%;" />
