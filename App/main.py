@@ -31,14 +31,7 @@ from flask import Flask, escape, request
 app = Flask(__name__)
 
 
-@app.route('/tablet', methods=['POST'])
-def tablet():
-    req=request.get_json(force = True)
-    print(json.dumps(req, indent=4,ensure_ascii=False))
-       
-    res ={'fulfillmentText':"ggggggggg"}
-    
-    return jsonify(res)
+
 
 
 @app.route('/sample', methods=['POST'])
@@ -59,13 +52,13 @@ def sample():
 
 @app.route('/tablet_search', methods=['POST'])
 def tablet_search():
-    
+    #이미지 불러오기
     body = request.json
     img_url = body['action']['detailParams']['photo']['origin']
     img_url = img_url.replace(')','(').replace(',','(').split('(')[1]
-    urllib.request.urlretrieve(img_url, './image.jpg')
-    
+    urllib.request.urlretrieve(img_url, './image.jpg')    
     img = cv2.imread('./image.jpg')
+    
 #     분류를 위한 이미지 전처리를 수행합니다
     image = cv2.resize(img, (280, 160))
     image = image.astype("float") / 255.0
@@ -73,22 +66,19 @@ def tablet_search():
     image = np.expand_dims(image, axis=0)
     
 
-     # 학습된 네트워크와 `MultiLabelBinarizer`를 로드합니다
-    # print("[INFO] loading network...")
+     # 학습된 네트워크와 `MultiLabelBinarizer`를 로드합니다    
     model = load_model("model.h5")
     mlb = pickle.loads(open("labelbin", "rb").read())
 
-    # 이미지에 대한 분류를 수행한 후, 
-    # 확률이 가장 높은 네 개의 클래스 라벨을 찾습니다
-    #print("[INFO] classifying image...")
+    # 이미지에 대한 분류를 수행       
     proba = model.predict(image)[0]
     idxs = np.argsort(proba)[::-1][:4]
-    
-  
+      
     
     tablet_shape=[]
     tablet_color=[]
-
+    
+    # 알약 shape와 color에 대한 labels
     tablet_shape_labels=['a hemicyclea semicircle','circle','diamond','ellipse','hexagon','octagon','pentagon',
     'rectangle','tetragon','triangle']
     tablet_color_labels=['black','blue','blue, light','blue, transparency','bluish green','bluish green, transparency','brown',
@@ -98,6 +88,7 @@ def tablet_search():
     'white, green','white, red','white, transparency','white, yellow','wine','wine, transparency','yellow',
     'yellow, transparency','yellowish green','yellowish green, transparency']
     
+    # 확률이 가장 높은 네 개의 클래스 라벨을 찾습니다 
     for idx in range(4) :
         if mlb.classes_[idxs[idx]] in tablet_shape_labels :
             tablet_shape.append(mlb.classes_[idxs[idx]])
@@ -108,39 +99,7 @@ def tablet_search():
     print(tablet_shape[0])
     print(tablet_color[0])
     
-# #     구글API
-#     os.environ["GOOGLE_APPLICATION_CREDENTIALS"] ='./crucial-lyceum-274205-eadd5d760574.json'
-# #     print(os.environ['GOOGLE_APPLICATION_CREDENTIALS'])
 
-#     client = vision.ImageAnnotatorClient()
-    
-
-#     with io.open('./image.jpg', 'rb') as image_file:
-#         content = image_file.read()
-
-#     image = vision.types.Image(content=content)
-
-#     response = client.text_detection(image=image)
-#     texts = response.text_annotations
-
-#     search_word=texts[1].description
-    
-    
-#     df1=pd.read_excel("test.xlsx")
-    
-  
-    
-#     check1 = df1[(df1['의약품제형']== tablet_shape[0]) & (df1['색상앞']==tablet_color[0])] 
-#     check2 = check1[(check1['표시앞']==search_word) | (check1['표시뒤']==search_word)]
-    
-#     check2.to_json('test.json', orient='table')
-
-#     with open('test.json') as json_file:
-#         json_data = json.load(json_file)
-    
-#     tablet_name = json_data["data"][0]["품목명"]
-#     tablet_function = json_data["data"][0]["분류명"]
-#     print(tablet_name)
     res = {
    "version": "2.0",
    "template": {
@@ -174,18 +133,20 @@ def tablet_search():
 
 @app.route('/tablet_result', methods=['POST'])
 def tablet_result():
+    #알약 예측 값에 대한 정보
     body = request.json
     tablet_color = body['action']['clientExtra']['b']
     print(tablet_color)
     tablet_shape = body['action']['clientExtra']['a']
     print(tablet_shape)
-
+    
+    #google API 환경설정
     os.environ["GOOGLE_APPLICATION_CREDENTIALS"] ='./crucial-lyceum-274205-eadd5d760574.json'
 #     print(os.environ['GOOGLE_APPLICATION_CREDENTIALS'])
 
+    # google api 실행
     client = vision.ImageAnnotatorClient()
     
-
     with io.open('./image.jpg', 'rb') as image_file:
         content = image_file.read()
 
@@ -193,15 +154,12 @@ def tablet_result():
 
     response = client.text_detection(image=image)
     texts = response.text_annotations
-
+    
+    # 이미지에서 찾은 text중 알약에서 나온 정보
     search_word=texts[1].description
     
-    
-    
+    # 위의 정보를 바탕으로 알약 정보 추출
     df1=pd.read_csv('./공공데이터개방_낱알식별목록_re.csv',encoding = 'cp949')
-    
-  
-    
     check1 = df1[(df1['의약품제형']== tablet_shape) & (df1['색상앞']==tablet_color)] 
     check2 = check1[(check1['표시앞']==search_word) | (check1['표시뒤']==search_word)]
     
@@ -210,9 +168,7 @@ def tablet_result():
     with open('test.json') as json_file:
         json_data = json.load(json_file)
     
-#     tablet_name = json_data["data"][0]["품목명"]
-#     tablet_function = json_data["data"][0]["분류명"]
-#     print(tablet_name)
+    # 파악된 정보에 따른 결과
     if len(check2) == 0 :
         res = {
               "version": "2.0",

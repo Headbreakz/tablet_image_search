@@ -6,17 +6,16 @@
     │  README.md
     │
     ├─App
-    │      app.py
     │      main.py
     │
     ├─Code
     │      App_code.ipynb
-    │      classify.ipynb
+    │      tablet_classify.ipynb
     │      googleAPI.ipynb
     │      image_save.ipynb
     │      image_search.ipynb
     │      labels.txt
-    │      model.ipynb
+    │      model_study.ipynb
     │      test.ipynb
     │      모양.txt
     │      색상.txt
