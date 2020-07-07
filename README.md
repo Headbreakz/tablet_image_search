@@ -159,7 +159,7 @@ http://pf.kakao.com/_nxkxbaxb
     * 이미지 1개 
     * 라벨 2개 ( 색상, 모양 )
   * 참고 링크
-    * [https://github.com/KerasKorea/KEKOxTutorial/blob/master/35_%EC%BC%80%EB%9D%BC%EC%8A%A4%EB%A5%BC%20%EC%9D%B4%EC%9A%A9%ED%95%9C%20%EB%8B%A4%EC%A4%91%20%EB%9D%BC%EB%B2%A8%20%EB%B6%84%EB%A5%98.md](https://github.com/KerasKorea/KEKOxTutorial/blob/master/35_케라스를 이용한 다중 라벨 분류.md)
+    * [케라스를 이용한 다중 라벨 분류](https://github.com/KerasKorea/KEKOxTutorial/blob/master/35)
   * 알약 사진 재 저장 -22,878개 145 목록
   * 알약 사진을 형태와 색상으로 나눠서 저장 
   
