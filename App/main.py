@@ -96,9 +96,7 @@ def tablet_search():
         elif mlb.classes_[idxs[idx]] in tablet_color_labels :
             tablet_color.append(mlb.classes_[idxs[idx]])
           
-    print(tablet_shape[0])
-    print(tablet_color[0])
-    
+     
 
     res = {
    "version": "2.0",
